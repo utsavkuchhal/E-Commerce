@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.AdminOrders"></activity>
+        <activity android:name=".Activity.DecideLogin"></activity>
+        <activity android:name=".Activity.AdminOrders" />
         <activity android:name=".Orders" />
         <activity android:name=".Basket" />
         <activity android:name=".Products" />

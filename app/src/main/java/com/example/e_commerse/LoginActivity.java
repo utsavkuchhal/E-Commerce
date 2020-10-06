@@ -17,23 +17,32 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class LoginActivity extends AppCompatActivity {
 
+    @BindView(R.id.login_email_input)
     EditText email;
+
+    @BindView(R.id.login_password_input)
     EditText password;
+
+    @BindView(R.id.login_btn)
     Button btn_register;
+
     private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        email = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword);
-        btn_register = findViewById(R.id.button);
+        ButterKnife.bind(this);
         mAuth = FirebaseAuth.getInstance();
     }
 
+    @OnClick(R.id.login_btn)
     public void onClickLogin(View view) {
         String mail = email.getText().toString().trim().toLowerCase();
         String pass = password.getText().toString().trim().toLowerCase();
