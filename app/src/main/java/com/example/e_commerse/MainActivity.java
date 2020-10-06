@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.e_commerse.Activity.AdminMain;
+import com.example.e_commerse.Activity.AdminPanel;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AdminMain.class));
+                startActivity(new Intent(MainActivity.this, AdminPanel.class));
             }
         });
 

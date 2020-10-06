@@ -18,7 +18,7 @@
         <activity android:name=".Orders" />
         <activity android:name=".Basket" />
         <activity android:name=".Products" />
-        <activity android:name=".AdminPanel" />
+        <activity android:name=".Activity.AdminPanel" />
         <activity android:name=".BottomActivity" />
         <activity android:name=".Splash">
             <intent-filter>
