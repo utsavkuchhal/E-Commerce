@@ -8,5 +8,27 @@
     <color name="colocancelled">#ff0000</color>
     <color name="colorshipped">#FFFF00</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="searchback">#E1E1E1</color>
+
+    <color name="btn_disable">#ffd4ad</color>
+    <color name="grey">#8a8a8a</color>
+    <color name="yellow">#F37C35</color>
+    <color name="green">#017d89</color>
+    <color name="lightWhite">#ECEAEA</color>
+    <color name="lightGrey">#E7E7E7</color>
+    <color name="dimtext_color">#959797</color>
+    <color name="et_textcolor">#ABABAB</color>
+    <color name="colorDarkPink">#01565F</color>
+    <color name="colorYellow">#EE8036</color>
+    <color name="colorLightGreen">#424242</color>
+    <color name="colorLightPink">#A9ACB0</color>
+    <color name="colorDarkBlue">#007C87</color>
+    <color name="colorSkyBlue">#F1F1F1</color>
+    <color name="colorOrange">#EE8036</color>
+    <color name="colorDarkGray">#898989</color>
+    <color name="colorHardDarkGray">#494949</color>
+    <color name="colorDarkPrimary">#DADADA</color>
+    <color name="colorFaded">#F6F6F6</color>
 
 </resources>

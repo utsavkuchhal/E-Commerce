@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/orders"
+        android:icon="@drawable/orders_selector"
+        android:title="Orders" />
+
+    <item
+        android:id="@+id/products"
+        android:icon="@drawable/prduct_selector"
+        android:title="Products" />
+
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/more_selector"
+        android:title="More" />
+
+</menu>

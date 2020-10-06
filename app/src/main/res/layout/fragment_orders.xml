@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.OrdersFragment">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="PENDING"
+                android:textSize="16sp"
+                android:id="@+id/tv_pending"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="SHIPPED"
+                android:id="@+id/tv_shipped"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+     <androidx.recyclerview.widget.RecyclerView
+         android:layout_width="match_parent"
+         android:id="@+id/rv_orders"
+         android:layout_height="match_parent"/>
+  </LinearLayout>
+</FrameLayout>
