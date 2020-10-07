@@ -7,28 +7,5 @@
     android:orientation="horizontal"
     android:weightSum="3"
     tools:context=".BottomActivity">
-    <TextView
-        android:layout_width="match_parent"
-        android:text="products"
-        android:id="@+id/tv_pro"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:background="@color/colorAccent"
-        android:layout_height="40dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Cart"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:id="@+id/tv_cart"
-        android:background="@color/colorAccent"
-        android:layout_height="40dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:text="Orders"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:id="@+id/tv_order"
-        android:background="@color/colorAccent"
-        android:layout_height="40dp"/>
+
 </LinearLayout>

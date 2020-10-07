@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".MainActivityKotlin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +23,14 @@
         </activity>
         <activity android:name=".Activity.DecideLogin" />
         <activity android:name=".Activity.AdminOrders" />
+=======
+        <activity android:name=".Activity.AdminMain"></activity>
+        <activity android:name=".Activity.DecideLogin" />
+>>>>>>> 45a5425631addbdd53f7a9c4c0168b38ed7e93df
         <activity android:name=".Orders" />
         <activity android:name=".Basket" />
         <activity android:name=".Products" />
-        <activity android:name=".AdminPanel" />
+        <activity android:name=".Activity.AdminPanel" />
         <activity android:name=".BottomActivity" />
         <activity android:name=".Splash">
 
