@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button logout,add,items,cart,myorders,adminOrders;
+    Button logout,add,items,cart,myorders,adminOrders,kotlin_main;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         cart = findViewById(R.id.button9);
         myorders = findViewById(R.id.button11);
         adminOrders = findViewById(R.id.button10);
+        kotlin_main=findViewById(R.id.kt_main);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +67,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, AdminMain.class));
+            }
+        });
+
+        kotlin_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, MainActivityKotlin.class));
             }
         });
     }
