@@ -1,14 +1,17 @@
 package com.example.e_commerse;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.ListView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_commerse.Adapters.OrderAdapter;
 import com.example.e_commerse.Models.OrderModel;
 import com.example.e_commerse.Models.ProductModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,21 +19,30 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Orders extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    ListView lv_orders;
-    ArrayList<ProductModel> products;
+public class Orders extends AppCompatActivity implements OrderAdapter.ClickListener {
+
     ArrayList<OrderModel> orders;
     OrderAdapter orderAdapter;
+
+    @BindView(R.id.lv_orders)
+    RecyclerView lvOrders;
+
+    FirebaseUser firebaseUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
-        lv_orders = findViewById(R.id.lv_orders);
-        products = new ArrayList<>();
+        ButterKnife.bind(this);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         orders = new ArrayList<>();
-        orderAdapter = new OrderAdapter(this,orders);
-        lv_orders.setAdapter(orderAdapter);
+        orderAdapter = new OrderAdapter(this, orders, Orders.this);
+        lvOrders.setLayoutManager(new LinearLayoutManager(this));
+        lvOrders.setHasFixedSize(true);
+        lvOrders.setAdapter(orderAdapter);
         OrderApiHit();
     }
 
@@ -38,8 +50,10 @@ public class Orders extends AppCompatActivity {
         FirebaseDatabase.getInstance().getReference().child("Orders").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    orders.add(snapshot.getValue(OrderModel.class));
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    OrderModel orderModel = snapshot.getValue(OrderModel.class);
+                    if (orderModel.getBuyerId().equalsIgnoreCase(firebaseUser.getUid()))
+                        orders.add(snapshot.getValue(OrderModel.class));
                 }
                 orderAdapter.notifyDataSetChanged();
             }
@@ -49,5 +63,10 @@ public class Orders extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }

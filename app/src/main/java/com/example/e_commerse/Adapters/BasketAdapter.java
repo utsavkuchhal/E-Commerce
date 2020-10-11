@@ -1,67 +1,89 @@
 package com.example.e_commerse.Adapters;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.e_commerse.Basket;
 import com.example.e_commerse.Models.BasketModel;
 import com.example.e_commerse.Models.ProductModel;
 import com.example.e_commerse.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class BasketAdapter extends ArrayAdapter<ProductModel> {
-    Activity context;
-    ArrayList<ProductModel> products;
-    ArrayList<BasketModel> items;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-    public BasketAdapter(@NonNull Activity context, ArrayList<ProductModel> products,ArrayList<BasketModel> basketModels) {
-        super(context, R.layout.product_pojo, products);
+public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.BasketClass> {
+
+    Context context;
+    ArrayList<BasketModel> basketItems;
+    ArrayList<ProductModel> items;
+    ClickListener clickListener;
+
+
+    public BasketAdapter(Context context, ArrayList<BasketModel> basketItems, ArrayList<ProductModel> items,ClickListener clickListener) {
         this.context = context;
-        this.products = products;
-        this.items = basketModels;
+        this.basketItems = basketItems;
+        this.items = items;
+        this.clickListener = clickListener;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.basket_pojo,parent,false);
-        TextView name = view.findViewById(R.id.textView2);
-        TextView desc = view.findViewById(R.id.textView3);
-        TextView price = view.findViewById(R.id.textView4);
-        TextView quantity = view.findViewById(R.id.textView6);
-        Button btnRemove = view.findViewById(R.id.button8);
+    public BasketClass onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.basket_pojo, parent, false);
+        return new BasketClass(view);
+    }
 
-        if (products != null && items != null) {
-            price.setText(products.get(position).getPrice() + "");
-            desc.setText(products.get(position).getDescription());
-            name.setText(products.get(position).getProductName());
-            quantity.setText(items.get(position).getQuantity() + "");
+    @Override
+    public void onBindViewHolder(@NonNull BasketClass holder, int position) {
+        holder.basketItem.setText(items.get(position).getProductName());
+        holder.basketQuantity.setText(basketItems.get(position).getQuantity() + "");
+    }
 
-            btnRemove.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FirebaseDatabase.getInstance().getReference().child("basket").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(products.get(position).getProductId()).removeValue();
-                    Toast.makeText(context, "Items Removed", Toast.LENGTH_SHORT).show();
-                    notifyDataSetChanged();
-                    //TODO change Improve List view UI on delete of any items
-                }
-            });
 
+    @Override
+    public int getItemCount() {
+        return basketItems.size();
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position);
+    }
+
+    public class BasketClass extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.basket_Image)
+        ImageView basketImage;
+        @BindView(R.id.basket_item)
+        TextView basketItem;
+        @BindView(R.id.basket_quantity)
+        TextView basketQuantity;
+        @BindView(R.id.btn_edit_cart)
+        Button btnEditCart;
+        @BindView(R.id.btn_delete)
+        ImageButton btnDelete;
+
+        public BasketClass(@NonNull View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
         }
-        return view;
+
+        @OnClick(R.id.cl_commonClick)
+        void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.cl_commonClick:
+                    clickListener.onItemClick(getAdapterPosition());
+                    break;
+            }
+        }
     }
 }
