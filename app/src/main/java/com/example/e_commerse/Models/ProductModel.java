@@ -28,6 +28,14 @@ public class ProductModel {
     public ProductModel() {
     }
 
+    public ProductModel(String productName, int price, String imageUrl, String productId, String description) {
+        this.productName = productName;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.productId = productId;
+        this.description = description;
+    }
+
     public void setProductName(String productName) {
         this.productName = productName;
     }

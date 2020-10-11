@@ -71,8 +71,6 @@
                     android:layout_height="wrap_content"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     />
-
-
             </LinearLayout>
 
         </ScrollView>

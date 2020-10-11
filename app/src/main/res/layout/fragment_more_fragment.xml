@@ -12,7 +12,6 @@
         <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/colorLightGreen"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +40,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -52,62 +51,62 @@
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_project_internship" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_deals" />
 
                 <View
                     android:id="@+id/view4"
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_myInternships" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_add" />
 
                 <View
                     android:id="@+id/view5"
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_myProfile" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_orderHistory" />
 
                 <View
                     android:id="@+id/view11"
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_testimonials" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_logout" />
 
                 <View
                     android:id="@+id/view12"
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_certificates" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_faqs" />
 
                 <View
                     android:id="@+id/view7"
                     android:layout_width="0dp"
                     android:layout_height="0.5dp"
                     android:layout_marginTop="4dp"
-                    android:background="@color/white"
+                    android:background="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -120,7 +119,7 @@
                     android:layout_marginTop="4dp"
                     android:padding="10dp"
                     android:text="Support"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -129,13 +128,13 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_certificates"
+                    android:id="@+id/tv_faqs"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="10dp"
                     android:text="FAQ's"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
@@ -143,13 +142,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/view7" />
 
                 <TextView
-                    android:id="@+id/tv_testimonials"
+                    android:id="@+id/tv_logout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="10dp"
                     android:text="Logout"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -157,13 +156,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/view12" />
 
                 <TextView
-                    android:id="@+id/tv_project_internship"
+                    android:id="@+id/tv_deals"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="10dp"
                     android:text="Deals/Offers"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -171,27 +170,29 @@
                     app:layout_constraintTop_toBottomOf="@+id/view4" />
 
                 <TextView
-                    android:id="@+id/tv_myInternships"
+                    android:id="@+id/tv_add"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:padding="10dp"
-                    android:text="Coupons"
-                    android:textColor="@color/lightGrey"
+                    android:drawableEnd="@drawable/iv_add"
+                    android:text="Add More Products"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvProfileName" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
+                    android:drawableRight="@drawable/iv_add" />
 
                 <TextView
-                    android:id="@+id/tv_myProfile"
+                    android:id="@+id/tv_orderHistory"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:padding="10dp"
                     android:text="Order History"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"

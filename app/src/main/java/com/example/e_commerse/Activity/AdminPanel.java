@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.e_commerse.Models.ProductModel;
 import com.example.e_commerse.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,8 +41,6 @@ public class AdminPanel extends AppCompatActivity {
     EditText etDescription;
     @BindView(R.id.et_price)
     EditText etPrice;
-    @BindView(R.id.ivEditProfilePic)
-    ImageView ivEditProfilePic;
     @BindView(R.id.iv_product_image)
     ImageView ivProductImage;
     private DatabaseReference mDatabase;
@@ -66,16 +65,11 @@ public class AdminPanel extends AppCompatActivity {
         String category = acTvCategory.getText().toString().trim();
 
         if (name.length() != 0 && img.length() != 0 && desc.length() != 0 && category.length() != 0) {
-            HashMap<String, Object> productModel = new HashMap<>();
-            productModel.put("productName", name);
-            productModel.put("price", price);
-            productModel.put("imageUrl", img);
-            productModel.put("productId", productId);
-            productModel.put("description", desc);
 
-            mDatabase.child("Categories").child(category).child("productId").setValue(productId);
 
-            mDatabase.child("Products").child(productId).setValue(productModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+            mDatabase.child("Categories").child(category).child(productId).setValue(true);
+
+            mDatabase.child("Products").child(productId).setValue(new ProductModel(name, price, img, productId, desc)).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     Toast.makeText(AdminPanel.this, "Item added", Toast.LENGTH_SHORT).show();
