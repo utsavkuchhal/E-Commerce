@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.e_commerse.KotlinItemClass.CategoryItem
+import com.example.e_commerse.KotlinItemClass.FetchItem
 import com.example.e_commerse.KotlinItemClass.MainItem
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DataSnapshot
@@ -36,22 +37,6 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter=GroupAdapter<GroupieViewHolder>()
-
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        recycleView_category.adapter=adapter
-
         val adapter2=GroupAdapter<GroupieViewHolder>()
             adapter2.add(MainItem())
             adapter2.add(MainItem())
@@ -73,9 +58,15 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
        val ref= FirebaseDatabase.getInstance().getReference("/Categories")
         ref.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
+                val adapter=GroupAdapter<GroupieViewHolder>()
+
                 p0.children.forEach{
                     Log.d("Get items", it.toString())
+                    val catItems=it.getValue(FetchItem()::class.java)
+                    adapter.add(CategoryItem())
+
                 }
+                recycleView_category.adapter=adapter
             }
             override fun onCancelled(p0: DatabaseError) {
 
