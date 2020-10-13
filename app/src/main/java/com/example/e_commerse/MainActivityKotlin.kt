@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.example.e_commerse.KotlinItemClass.CategoryItem
 import com.example.e_commerse.KotlinItemClass.MainItem
+import com.example.e_commerse.ktActivitys.CategoryItemActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,7 +19,7 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_main_kotlin.*
-import java.util.*
+import kotlinx.android.synthetic.main.category_layout.*
 
 
 class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
@@ -36,22 +37,6 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter=GroupAdapter<GroupieViewHolder>()
-
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        adapter.add(CategoryItem())
-        recycleView_category.adapter=adapter
-
         val adapter2=GroupAdapter<GroupieViewHolder>()
             adapter2.add(MainItem())
             adapter2.add(MainItem())
@@ -64,18 +49,37 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
         adapter3.add(MainItem())
         adapter3.add(MainItem())
         adapter3.add(MainItem())
+        adapter3.add(MainItem())
+        adapter3.add(MainItem())
+        adapter3.add(MainItem())
+        adapter3.add(MainItem())
 
         recycleView_main_item_second.adapter=adapter3
         fetchCategoryItem()
     }
 
+
+
     private fun fetchCategoryItem(){
        val ref= FirebaseDatabase.getInstance().getReference("/Categories")
         ref.addListenerForSingleValueEvent(object :ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
+                val adapter=GroupAdapter<GroupieViewHolder>()
+
                 p0.children.forEach{
                     Log.d("Get items", it.toString())
+                    val catItems=it.key.toString()
+                    adapter.add(CategoryItem(catItems))
                 }
+
+                adapter.setOnItemClickListener { item, view ->
+                    val itemName= item as CategoryItem
+                    val intent=Intent(view.context,CategoryItemActivity::class.java)
+                        intent.putExtra("ctName",itemName.ctItem)
+                        startActivity(intent)
+                        }
+
+                recycleView_category.adapter=adapter
             }
             override fun onCancelled(p0: DatabaseError) {
 
