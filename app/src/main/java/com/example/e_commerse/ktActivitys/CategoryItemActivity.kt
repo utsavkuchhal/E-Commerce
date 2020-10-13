@@ -3,6 +3,8 @@ package com.example.e_commerse.ktActivitys
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.example.e_commerse.KotlinItemClass.FetchItem
 import com.example.e_commerse.KotlinItemClass.PtCategoryItem
 import com.example.e_commerse.R
 import com.google.firebase.database.DataSnapshot
@@ -21,23 +23,24 @@ class CategoryItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category_item)
-
+        recycleView_pt_category_item.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         categoryName =intent.getStringExtra("ctName")
-
 
         fetchItem()
     }
 
     private fun fetchItem(){
+        var itemKeyList= mutableListOf<String>()
         val ref=FirebaseDatabase.getInstance().getReference("/Categories/$categoryName")
 
         ref.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(p0: DataSnapshot) {
                 val adapter=GroupAdapter<GroupieViewHolder>()
 
-                p0.children.forEach {
-                    Log.d("getProductId",it.key.toString())
 
+                p0.children.forEach {
+                    //Log.d("getProductId",it.key.toString())
+                        itemKeyList.add(it.key.toString())
                 }
 
 
@@ -47,11 +50,14 @@ class CategoryItemActivity : AppCompatActivity() {
 
                             override fun onDataChange(p0: DataSnapshot) {
                                 p0.children.forEach {
-
-                                    adapter.add(PtCategoryItem())
+                                    if(itemKeyList.contains(it.key.toString())) {
+                                        val itemsCt = it.getValue(FetchItem()::class.java)
+                                        if (itemsCt != null) {
+                                            adapter.add(PtCategoryItem(itemsCt))
+                                        }
+                                    }
                                 }
                             }
-
                             override fun onCancelled(p0: DatabaseError) {
 
                             }
