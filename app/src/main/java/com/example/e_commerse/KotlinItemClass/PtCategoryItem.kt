@@ -10,6 +10,7 @@ class PtCategoryItem(val itemCt:FetchItem): Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.itemView.ctItem_product_name.text=itemCt.productName
         viewHolder.itemView.ctItem_product_des.text=itemCt.description
+        viewHolder.itemView.ctName_product_price.text=itemCt.price.toString()
         Picasso.get().load(itemCt.imageUrl).into(viewHolder.itemView.ctItem_product_image)
     }
 
