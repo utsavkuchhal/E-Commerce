@@ -49,11 +49,6 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
         adapter3.add(MainItem())
         adapter3.add(MainItem())
         adapter3.add(MainItem())
-        adapter3.add(MainItem())
-        adapter3.add(MainItem())
-        adapter3.add(MainItem())
-        adapter3.add(MainItem())
-
         recycleView_main_item_second.adapter=adapter3
         fetchCategoryItem()
     }
