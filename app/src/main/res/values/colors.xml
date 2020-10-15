@@ -32,6 +32,7 @@
     <color name="colorHardDarkGray">#494949</color>
     <color name="colorDarkPrimary">#DADADA</color>
     <color name="colorFaded">#F6F6F6</color>
+    <color name="blue">#0099ff</color>
 
 
 </resources>
