@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -19,7 +20,6 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_main_kotlin.*
-import kotlinx.android.synthetic.main.category_layout.*
 
 
 class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
@@ -53,6 +53,12 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
         fetchCategoryItem()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_actionbar_menu,menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
 
 
     private fun fetchCategoryItem(){
@@ -84,13 +90,16 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+        when (item.itemId) {
             android.R.id.home -> {
                 drawer.openDrawer(GravityCompat.START)
-                true
             }
-            else -> super.onOptionsItemSelected(item)
+            R.id.Actionbar_cart->{
+                val intent=Intent(this,Basket::class.java)
+                    startActivity(intent)
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {

@@ -25,7 +25,8 @@
                 android:layout_width="300dp"
                 android:layout_gravity="center"
                 android:layout_height="250dp"
-                app:srcCompat="@drawable/momos" />
+                app:srcCompat="@drawable/momos"
+                android:contentDescription="TODO" />
             <TextView
                 android:id="@+id/user_product_stoke"
                 android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="In Stock"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 android:layout_gravity="right"
@@ -50,7 +51,7 @@
                 android:paddingLeft="10dp"
                 android:text="Product Name"
                 android:textColor="@color/black"
-                android:textSize="26dp"
+                android:textSize="26sp"
                 android:textStyle="bold|italic" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,9 +62,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Price :"
-                    android:textSize="24dp"
+                    android:textSize="24sp"
                     android:textColor="@color/black"
-                    android:paddingLeft="10dp"
+                    android:paddingLeft="20sp"
                     />
 
                 <TextView
@@ -72,19 +73,27 @@
                     android:layout_height="wrap_content"
                     android:text="  displayPrice"
                     android:textColor="@color/black"
-                    android:textSize="24dp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:paddingLeft="20sp"
+                android:text="Description"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textStyle="bold|italic"/>
 
             <TextView
                 android:id="@+id/user_product_des"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:inputType="textMultiLine"
-                android:paddingLeft="20dp"
+                android:paddingLeft="20sp"
                 android:text="Description"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,8 +104,8 @@
                 >
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="350dp"
+                    android:layout_height="600dp"
                     android:background="@drawable/user_product_rating_background"
                     android:orientation="vertical"
                     android:layout_gravity="center"
@@ -106,17 +115,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:paddingLeft="8dp"
+                        android:paddingLeft="8sp"
                         android:text="Ratings &amp; Review"
                         android:textColor="@color/black"
-                        android:textSize="22dp" />
+                        android:textSize="22sp" />
 
                     <RatingBar
                         android:id="@+id/user_product_rating"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:numStars="5"
-                        android:paddingLeft="8dp"
+                        android:paddingLeft="8sp"
                         android:rating="3.5"
                         android:stepSize="0.5"
                         android:theme="@style/Widget.AppCompat.RatingBar" />
@@ -153,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:background="@color/colorPrimary"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -164,7 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:background="@color/blue"
