@@ -51,10 +51,7 @@ public class ProductAdapter extends ArrayAdapter<ProductModel> {
             @Override
             public void onClick(View v) {
                 String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                HashMap<String,Object> map = new HashMap<>();
-                map.put("productId",products.get(position).getProductId());
-                map.put("quantity",1);
-                FirebaseDatabase.getInstance().getReference().child("basket").child(userId).child(products.get(position).getProductId()).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("basket").child(userId).child(products.get(position).getProductId()).setValue(1).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(context, "Added to cart", Toast.LENGTH_SHORT).show();
