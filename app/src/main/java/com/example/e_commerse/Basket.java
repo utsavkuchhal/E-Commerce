@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.e_commerse.Adapters.BasketAdapter;
 import com.example.e_commerse.Adapters.CategoryAdapter;
 import com.example.e_commerse.Models.BasketModel;
+import com.example.e_commerse.Models.OrderModel;
 import com.example.e_commerse.Models.ProductModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -65,8 +66,9 @@ public class Basket extends AppCompatActivity implements BasketAdapter.ClickList
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    BasketModel basktItem = snapshot.getValue(BasketModel.class);
-                    basketItems.add(basktItem);
+                    String productid = (String) snapshot.getKey();
+                    int quantity = Integer.parseInt(snapshot.getValue());
+                    basketItems.add(new BasketModel(productid, quantity));
                 }
 
                 FirebaseDatabase.getInstance().getReference().child("Products").addValueEventListener(new ValueEventListener() {
@@ -102,6 +104,10 @@ public class Basket extends AppCompatActivity implements BasketAdapter.ClickList
 
     @OnClick(R.id.btn_place_order)
     public void orderOnClick() {
+        String orderId = FirebaseDatabase.getInstance().getReference().push().getKey();
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+        FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase.getInstance().getReference().child("Orders").child(orderId).setValue(new OrderModel());
 
     }
 

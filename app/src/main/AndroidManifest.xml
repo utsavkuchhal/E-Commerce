@@ -16,6 +16,7 @@
         <activity android:name=".ktActivitys.UserProductActivity"></activity>
         <activity android:name=".ktActivitys.CategoryItemActivity" />
         <activity android:name=".Activity.AdminOrderHistory" />
+        <activity android:name=".Activity.AdminOrderHistory"></activity>
         <activity android:name=".Activity.CategoryWiseActivity" />
         <activity android:name=".MainActivityKotlin" />
         <activity android:name=".Activity.DecideLogin" />

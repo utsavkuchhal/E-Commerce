@@ -1,5 +1,6 @@
 package com.example.e_commerse;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.e_commerse.Activity.OrderDetailActivity;
 import com.example.e_commerse.Adapters.OrderAdapter;
 import com.example.e_commerse.Models.OrderModel;
 import com.example.e_commerse.Models.ProductModel;
@@ -67,6 +69,8 @@ public class Orders extends AppCompatActivity implements OrderAdapter.ClickListe
 
     @Override
     public void onItemClick(int position) {
-
+        Intent intent = new Intent(Orders.this, OrderDetailActivity.class);
+        intent.putExtra("orderID",orders.get(position).getOrderId());
+        startActivity(intent);
     }
 }
