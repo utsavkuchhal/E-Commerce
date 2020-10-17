@@ -67,7 +67,7 @@ public class Basket extends AppCompatActivity implements BasketAdapter.ClickList
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String productid = (String) snapshot.getKey();
-                    int quantity = Integer.parseInt(snapshot.getValue().toString());
+                    int quantity = Integer.parseInt(snapshot.getValue());
                     basketItems.add(new BasketModel(productid, quantity));
                 }
 
