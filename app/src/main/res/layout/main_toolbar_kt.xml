@@ -26,6 +26,7 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:text="0"
+        android:visibility="invisible"
         android:gravity="center"
         android:textColor="@color/white"
         android:background="@drawable/toolbar_action_counter"

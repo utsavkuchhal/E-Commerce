@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -60,9 +61,12 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
         }
 
         fetchCategoryItem()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         getCountOfBasket()
-
-
     }
 
     private fun fetchCategoryItem(){
@@ -159,7 +163,11 @@ class MainActivityKotlin : AppCompatActivity(), NavigationView.OnNavigationItemS
                 p0.children.forEach {
                     countItem++;
                 }
-                toolbar_counter.text=countItem.toString()
+                if(countItem!=0){
+                    toolbar_counter.visibility=View.VISIBLE
+                    toolbar_counter.text=countItem.toString()
+                }
+
             }
             override fun onCancelled(p0: DatabaseError) {
 
