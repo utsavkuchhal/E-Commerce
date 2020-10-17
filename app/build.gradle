@@ -3,6 +3,10 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+androidExtensions{
+    experimental=true
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -16,6 +20,7 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

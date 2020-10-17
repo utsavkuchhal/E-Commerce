@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/toolbar_cart_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/prduct_selector"
+        android:layout_gravity="right"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="30dp"/>
+    <TextView
+        android:id="@+id/toolbar_counter"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="0"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:background="@drawable/toolbar_action_counter"
+        android:textSize="13dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="20dp"/>
+
+</FrameLayout>

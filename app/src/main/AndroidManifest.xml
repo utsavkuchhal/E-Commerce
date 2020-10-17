@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ktActivitys.UserProductActivity"></activity>
+        <activity android:name=".ktActivitys.CategoryItemActivity" />
+        <activity android:name=".Activity.AdminOrderHistory" />
         <activity android:name=".Activity.AdminOrderHistory"></activity>
         <activity android:name=".Activity.CategoryWiseActivity" />
         <activity android:name=".MainActivityKotlin" />
