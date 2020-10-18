@@ -1,5 +1,6 @@
 package com.example.e_commerse.ktActivitys
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -57,6 +58,15 @@ class CategoryItemActivity : AppCompatActivity() {
                                         }
                                     }
                                 }
+
+                                adapter.setOnItemClickListener { item, view ->
+                                    val ptProduct=item as PtCategoryItem
+                                    val intent=Intent(view.context,UserProductActivity::class.java)
+                                        intent.putExtra("ProductD",item.itemCt)
+                                    startActivity(intent)
+
+                                }
+
                             }
                             override fun onCancelled(p0: DatabaseError) {
 
